@@ -1,0 +1,57 @@
+body{
+    padding: 1rem;
+}
+.gallery{
+    display: grid;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-auto-rows: 300px;
+    grid-auto-flow: dense;
+}
+/*this is added*/
+.gallery li figure{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* ---------------- */
+.wide{
+    grid-column: span 2;
+}
+.tall{
+    grid-row: span 2;
+}
+img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Add effect here */
+
+/*image show top above*/
+.gallery figure figcaption{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    margin: 1rem;
+    text-align: center;
+    display: grid;
+    align-content: center;
+    transition: filter .3s ease-in-out;
+    filter: opacity(0);
+}
+.gallery figure p{
+    font-style: italic;
+}
+.gallery figure figcaption:hover{
+    filter: opacity(80%);
+}
